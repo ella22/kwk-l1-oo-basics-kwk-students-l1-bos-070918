@@ -2,12 +2,19 @@ class Car
   
   attr_reader :model , :make , :year;
   attr_accessor :heating;
+  
+  @@car_count = 0
  
   def initialize(model, make, year)
     @model = model 
     @make = make 
     @year = year 
+    @@car_count += 1
   end
+  
+  def self.count 
+    @@car_count
+  end 
   
 end 
 
@@ -35,4 +42,4 @@ honda.make
 honda.year
 
 puts "This is my #{honda.model}. It is a #{honda.make} and was built in #{honda.year}."
-
+Car.count 
